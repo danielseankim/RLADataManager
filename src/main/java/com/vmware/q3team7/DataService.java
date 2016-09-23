@@ -96,11 +96,11 @@ public class DataService {
     }
 
     @DELETE
-    @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
+    @Path("/{id}")
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
-    public RLAData removeData(){
+    public RLAData removeData(@PathParam("id") String dataId){
         try {
-            RLADataPersister.getJedisPersister();
+            RLADataPersister.getJedisPersister().removeRLAData(dataId);
         } catch (WebApplicationException we) {
             throw we;
         } catch (Exception e) {

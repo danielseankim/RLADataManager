@@ -18,7 +18,7 @@ public class RLADataPersister {
     private static Jedis jedis;
     private static RLADataPersister instance;
     
-    protected RLADataPersister() {}
+    private RLADataPersister() {}
     
     public static RLADataPersister getJedisPersister() throws JedisConnectionException{
         if (instance == null) {
@@ -29,7 +29,7 @@ public class RLADataPersister {
         return instance;
     }
 
-    public Jedis getJedis() {
+    private Jedis getJedis() {
         return jedis;
     }
 
